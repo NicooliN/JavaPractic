@@ -24,6 +24,6 @@ public class Sets {
 
         setOne.retainAll(setTwo);
 
-
+        setOne.forEach(System.out::println);
     }
 }
