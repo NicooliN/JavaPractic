@@ -15,4 +15,5 @@ public class Main {
     public static <T> Set<T> convert(List<T> from) {
         return new HashSet<T>(from);
     }
+
 }
