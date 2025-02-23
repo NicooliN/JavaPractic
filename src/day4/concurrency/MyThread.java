@@ -2,7 +2,13 @@ package day4.concurrency;
 
 public class MyThread extends Thread {
     public void run() {
-        System.out.println("MyThread=" + getThreadInfo());
+        System.out.println("MyThread started=" + getThreadInfo());
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("MyThread finish =" + getThreadInfo());
     }
 
     private static String getThreadInfo() {

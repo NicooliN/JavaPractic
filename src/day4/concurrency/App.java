@@ -1,14 +1,12 @@
 package day4.concurrency;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 
         MyThread myThread = new MyThread();
         myThread.start();
-
-        myThread = new MyThread();
-        myThread.start();
+        myThread.join();
 
         System.out.println("Main thread = " + getThreadInfo());
     }
