@@ -3,15 +3,12 @@ package day4.concurrency;
 public class App {
     public static void main(String[] args) {
 
-        Runnable task = () -> {
-            System.out.println("Task thread = " + getThreadInfo());
-        };
 
-        Thread thread = new Thread(task);
-        thread.start();
+        MyThread myThread = new MyThread();
+        myThread.start();
 
-        thread = new Thread(task);
-        thread.start();
+        myThread = new MyThread();
+        myThread.start();
 
         System.out.println("Main thread = " + getThreadInfo());
     }
