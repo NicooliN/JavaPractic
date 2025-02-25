@@ -12,7 +12,8 @@ public class AppCon {
 
 
         myThread.start();
-        myThread.join();
+        Thread.sleep(1000);
+        myThread.interrupt();
 
         System.out.println("thread state: " + myThread.getState());
 

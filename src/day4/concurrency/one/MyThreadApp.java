@@ -3,14 +3,21 @@ package day4.concurrency.one;
 public class MyThreadApp extends Thread {
     public void run() {
         System.out.println("MyThread finish =" + getThreadInfo());
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+
+        while (!isInterrupted()) {
+            System.out.println("tread run");
+            try{
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                System.out.println("thread state= " + Thread.currentThread().getState());
+                break;
+            }
         }
+
         System.out.println("thread state: " + Thread.currentThread().getState());
-    System.out.println("MyThread finish =" + getThreadInfo());
-        System.out.println("thread state: " + Thread.currentThread().getState());
+   // System.out.println("MyThread finish =" + getThreadInfo());
+       // System.out.println("thread state: " + Thread.currentThread().getState());
     }
 
     private static String getThreadInfo() {
